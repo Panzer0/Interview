@@ -2,8 +2,9 @@
 
 
 def sonar(filename):
-    # TODO
-    return 0
+    with open(filename, 'r') as file:
+        data = [int(x) for x in file.read().split()]
+        return sum(former < latter for former, latter in zip(data[:-1], data[1:]))
 
 
 def main():
