@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 DAY_COUNT = 80
-FIRST_CYCLE = 6
-USUAL_CYCLE = 8
+CYCLE_FIRST = 6
+CYCLE_STANDARD = 8
 CYCLE_FINISHED = 0
 
 
 def progress_day(data):
-    data += [USUAL_CYCLE + 1 for _ in range(data.count(CYCLE_FINISHED))]
-    return [FIRST_CYCLE if x == CYCLE_FINISHED else x - 1 for x in data]
+    data += [CYCLE_STANDARD + 1 for _ in range(data.count(CYCLE_FINISHED))]
+    return [CYCLE_FIRST if x == CYCLE_FINISHED else x - 1 for x in data]
 
 
 def lanternfish(filename):
