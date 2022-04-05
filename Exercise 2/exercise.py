@@ -4,8 +4,10 @@
 def sonar(filename):
     with open(filename, 'r') as file:
         data = [int(x) for x in file.read().split()]
-        return sum(former < latter for former, latter in zip(data[:-1], data[1:]))
-
+        sums = [sum([a, b, c]) for a, b, c
+                in zip(data[:-2], data[1:-1], data[2:])]
+        return sum(former < latter for former, latter
+                   in zip(sums[:-1], sums[1:]))
 
 
 def main():
@@ -18,7 +20,7 @@ def main():
             print(f"Correct result for case {i + 1}: {result}")
         else:
             print(f"Incorrect result for case {i + 1}: {expected} is " \
-                f"expected, but {result} is returned")
+                  f"expected, but {result} is returned")
 
 
 if __name__ == "__main__":
